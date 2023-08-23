@@ -1,0 +1,61 @@
+﻿@model Booking
+
+
+  <div  class= "mt-5" style="margin-left:44%"  id="paypal-btn"></div>
+ <span style="padding:5px"></span>
+
+ 
+ @section scripts{
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+     var myModel = @Json.Serialize(Model);
+     // console.log(myModel);
+      localStorage.setItem("book", JSON.stringify(myModel));
+
+</script>
+<script>
+
+
+let _total = @Html.Raw(Model.Total_Price);
+   // TODO: fix this later
+    paypal.Button.render({
+        //Configure environment
+        env: 'sandbox',
+        client: {
+            sandbox: 'AeReFctEqkO_dkiGN-bugPZtKefJRL9v62RRzXKK5UW0IWnlnO-bKDNLDBLrQeN2fk0GI4G0HWU83Ch0'
+        },
+
+        //Customize button
+        locale: 'en_US',
+        style: {
+            size: 'small',
+            color: 'gold',
+            shape: 'pill'
+        },
+        commit: true,
+
+        //Set up a payment
+        payment: function (data, actions) {
+            return actions.payment.create({
+                transactions: [{
+                    amount: {
+                        total: _total,
+                        currency: 'USD'
+                    }
+                }]
+            });
+        },
+        
+        //Execute the payment
+        onAuthorize: function (data, actions) {
+            return actions.payment.execute().then(function () {
+                let ob = JSON.parse(window.localStorage.getItem("book"));
+                var url = '@Url.Action("Confirmation", "Booking")' + '?m=' + encodeURIComponent(JSON.stringify(ob));
+                window.location.href = url;
+            });
+          
+        }
+
+    }, '#paypal-btn')
+</script>
+}

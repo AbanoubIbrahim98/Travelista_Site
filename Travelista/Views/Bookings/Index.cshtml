@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Travelista.Models.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h1>Index</h1>
+
+
+<table class="table table-hover">
+    <thead class=" text-light" style="background-color:#00357D">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.user)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Check_In_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Check_Out_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Num_Guests)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total_Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.room.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Check_In_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Check_Out_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Num_Guests)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Price)
+            </td>
+            <td class="d-flex justify-content-end">
+                 <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+</div>

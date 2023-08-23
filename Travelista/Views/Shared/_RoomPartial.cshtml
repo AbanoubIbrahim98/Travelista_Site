@@ -1,0 +1,168 @@
+﻿
+@model IEnumerable<Room>
+
+ 
+
+@if(Model!=null){			
+<table class="table table-bordered">
+		<thead class="bg-primary">
+			<tr class="Background-nav-table">
+				<th scope="col">Room Type</th>
+				<th scope="col">Guests</th>
+				<th scope="col">Price Per Night</th>
+				<th scope="col">Bed Type</th>
+				
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody >
+			
+			@if(User.Identity.IsAuthenticated){
+					@foreach (var item in Model)
+			{
+				<tr>
+				<th scope="row">
+					<h4>@item.Room_Type</h4>
+					<p>
+						⌛Only 2 rooms left on our site
+					</p>
+					<p>🚪Room     📏20m² 📶Free WIFI</p>
+					<p>✔️Free toiletries ✔️Safety deposit box
+						<br /> ✔️Toilet Bath or shower ✔️Hardwood or parquet floors
+					</p>
+				</th>
+				
+				<td>@item.Occupancy</td>
+				
+				<td>
+					<p class="">
+						EGP @item.Price_Per_Night
+					</p>
+			
+				</td>
+				<td>@item.Bad_Type</td>
+				
+				
+				<td>     
+					
+						@if (item.Room_Type=="Single"&&item.hotel.SingleRoom_Number==0)
+							{
+								 <div class="alert alert-secondary" role="alert">
+                                     this room not availabe now
+                                 </div>
+								
+							}
+							
+							else if (item.Room_Type=="Double"&&item.hotel.DoubleRoom_Number==0)
+							{
+								<div class="alert alert-secondary" role="alert">
+                                     this room not availabe now
+                                 </div>
+							}
+							
+							else if (item.Room_Type=="Triple"&&item.hotel.TripleRoom_Number==0)
+							{
+								<div class="alert alert-secondary" role="alert">
+                                     this room not availabe now
+								</div>
+							}
+							else
+							{
+						<a asp-action="Index"  asp-controller="Booking" asp-route-id="@item.ID" class="btn btn-primary">I'LL recerve</a>
+	
+							}
+
+
+							
+							
+
+					<p>
+						<ul>
+							<li>
+								Confirmation is immediate
+							</li>
+							<li>No booking or credit card fees!</li>
+						</ul>
+					</p>
+				</td>
+			</tr>
+				
+				}
+
+			}
+			else
+			{
+				
+				@foreach (var item in Model)
+			{
+					
+						<tr>
+							
+					 <th scope="row" >
+					<h4>@item.Room_Type</h4>
+					<p>
+						⌛Only 2 rooms left on our site
+					</p>
+					<p>🚪Room     📏20m² 📶Free WIFI</p>
+					<p>✔️Free toiletries ✔️Safety deposit box
+						<br /> ✔️Toilet Bath or shower ✔️Hardwood or parquet floors
+					</p>
+				</th>	
+
+						
+
+				<td>@item.Occupancy</td>
+				
+				<td>
+					<p class="">
+						EGP @item.Price_Per_Night
+					</p>
+				</td>
+				<td>@item.Bad_Type</td>
+				@*@if(item.Room_Type=="Standard")
+				{<td>@item.hotel.StandardRoom_Number</td>}
+				@if(item.Room_Type=="Deluxe")
+				 {<td>@item.hotel.DeluxeRoom_Number</td>}
+				 @if(item.Room_Type=="Family")
+				 {<td>@item.hotel.FamilyRoom_Number</td>}
+				  @if(item.Room_Type=="Accessible")
+				 {<td>@item.hotel.AccessibleRoom_Number</td>}*@
+				
+				
+@*					<a asp-action="Index"  asp-controller="Booking" asp-route-id="@item.ID" class="btn btn-primary">I'LL recerve</a>
+*@
+<td>
+<a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="/Booking/Index?id=@item.ID" class="btn btn-primary">I'LL recerve</a>
+                
+
+
+					<p>
+						<ul>
+							<li>
+								Confirmation is immediate
+							</li>
+							<li>No booking or credit card fees!</li>
+						</ul>
+					</p>
+				</td>
+			
+				</tr>
+						
+					}
+					
+			
+				
+			
+
+		     }
+
+		
+		</tbody>
+	</table>
+	}
+	else
+		{
+			<div class="alert alert-dark" role="alert">
+           Sorry, all rooms are booked
+           </div>
+		}

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Recommendation>
+
+
+@foreach (var item in Model)
+{
+	
+	<div class="container-fluid mt-4 border-2">
+		<!--Section: Content-->
+		<div class="text-center dark-grey-text">
+
+			<!--Grid row-->
+			<div class="row align-items-center">
+
+				<!--Grid column-->
+				<div class="col-lg-6 mb-lg-0 mb-md-4">
+
+					<!--Image-->
+					
+					
+						<img src="~/Image/@item.Image_Url" class="w-50" alt="Travel"/>
+					
+
+	        
+			<div class="view overlay z-depth-1-half">
+					<a href="#">
+						<div class="mask rgba-white-slight"></div>
+					</a>
+				</div>
+
+			</div>
+			<!--Grid column-->
+			<div class="col-lg-6 ">
+
+				
+
+				<p class="text-muted">
+					@item.Description
+				</p>
+				
+
+			</div>
+			<!--Grid column-->
+
+		</div>
+		<!--Grid row-->
+
+	</div>
+	<!--Section: Content-->
+
+
+</div>
+
+
+
+}

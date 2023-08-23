@@ -1,0 +1,109 @@
+﻿@model Travelista.WeatherModel.City
+@{
+	ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="photo-search">
+	<div class="container text-white fw-bold text-OnGenralPhoto">
+		<h3>Find the perfect holiday rental for your trip</h3>
+		<p>With instant and flexible booking options on holiday homes, villas, apartments and more</p>
+	</div>
+
+</div>
+
+
+<div class="container d-flex justify-content-center h-100 inputs-GenralSearch">
+	<form method="post">
+		<input class="form-control " type="search" placeholder="Where are you going?" name="city" />
+	<input class="form-control " placeholder="From Date    📅" id="myDateInputFrom" type="text" onfocus="(this.type = 'date')">
+	<input class="form-control " placeholder="To Date      📅" id="myDateInputTo" type="text" onfocus="(this.type = 'date')">
+	<button class="btn btn-outline-secondary" type="submit">Search</button>
+
+	</form>
+	
+</div>
+
+@if(Model!=null){
+	<div class="card">
+	<div class="containerwather">
+		<div class="cloud front">
+			<span class="left-front"></span>
+			<span class="right-front"></span>
+		</div>
+		<span class="sun sunshine"></span>
+		<span class="sun"></span>
+		<div class="cloud back">
+			<span class="left-back"></span>
+			<span class="right-back"></span>
+		</div>
+	</div>
+
+	<div class="card-header">
+		<span>@Model.Name</span>
+		
+	</div>
+
+	<span class="temp">@Model.Temperature</span>
+
+	<div class="temp-scale">
+		<span>Celcius</span>
+	</div>
+</div>
+}
+
+<div class="container w-100 h-50 h-lg-100 w-lg-75 m-auto border p-4 my-5 data-hotal ">
+	<div class="row justify-content-between contan-data-hotal flex-wrap">
+		<div class="col-12 col-lg-3 ">
+			<img class="w-100 h-100" src="https://cf.bstatic.com/xdata/images/hotel/square200/349359663.webp?k=e5d6385f4658bd82a28e3aac9721417e9bc6a655e38aff65db91f95b906891b6&o=" alt="">
+		</div>
+		<div class="col-12 col-lg-9 row justify-content-between">
+			<div class="col-12 col-lg-9">
+				<div class="d-flex">
+					<a class="h3 text-decoration-none" href="~/home/Details">Windsor Plaza Copacabana</a>
+					<div>
+						<span><svg height="17px" width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path style="fill:#ED8A19;" d="M23.555 8.729a1.505 1.505 0 0 0-1.406-.98h-6.087a.5.5 0 0 1-.472-.334l-2.185-6.193a1.5 1.5 0 0 0-2.81 0l-.005.016-2.18 6.177a.5.5 0 0 1-.471.334H1.85A1.5 1.5 0 0 0 .887 10.4l5.184 4.3a.5.5 0 0 1 .155.543l-2.178 6.531a1.5 1.5 0 0 0 2.31 1.684l5.346-3.92a.5.5 0 0 1 .591 0l5.344 3.919a1.5 1.5 0 0 0 2.312-1.683l-2.178-6.535a.5.5 0 0 1 .155-.543l5.194-4.306a1.5 1.5 0 0 0 .433-1.661z"></path></svg></span>
+						<span><svg height="17px" width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path style="fill:#ED8A19;" d="M23.555 8.729a1.505 1.505 0 0 0-1.406-.98h-6.087a.5.5 0 0 1-.472-.334l-2.185-6.193a1.5 1.5 0 0 0-2.81 0l-.005.016-2.18 6.177a.5.5 0 0 1-.471.334H1.85A1.5 1.5 0 0 0 .887 10.4l5.184 4.3a.5.5 0 0 1 .155.543l-2.178 6.531a1.5 1.5 0 0 0 2.31 1.684l5.346-3.92a.5.5 0 0 1 .591 0l5.344 3.919a1.5 1.5 0 0 0 2.312-1.683l-2.178-6.535a.5.5 0 0 1 .155-.543l5.194-4.306a1.5 1.5 0 0 0 .433-1.661z"></path></svg></span>
+						<span><svg height="17px" width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path style="fill:#ED8A19;" d="M23.555 8.729a1.505 1.505 0 0 0-1.406-.98h-6.087a.5.5 0 0 1-.472-.334l-2.185-6.193a1.5 1.5 0 0 0-2.81 0l-.005.016-2.18 6.177a.5.5 0 0 1-.471.334H1.85A1.5 1.5 0 0 0 .887 10.4l5.184 4.3a.5.5 0 0 1 .155.543l-2.178 6.531a1.5 1.5 0 0 0 2.31 1.684l5.346-3.92a.5.5 0 0 1 .591 0l5.344 3.919a1.5 1.5 0 0 0 2.312-1.683l-2.178-6.535a.5.5 0 0 1 .155-.543l5.194-4.306a1.5 1.5 0 0 0 .433-1.661z"></path></svg></span>
+						<span><svg height="17px" width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path style="fill:#ED8A19;" d="M23.555 8.729a1.505 1.505 0 0 0-1.406-.98h-6.087a.5.5 0 0 1-.472-.334l-2.185-6.193a1.5 1.5 0 0 0-2.81 0l-.005.016-2.18 6.177a.5.5 0 0 1-.471.334H1.85A1.5 1.5 0 0 0 .887 10.4l5.184 4.3a.5.5 0 0 1 .155.543l-2.178 6.531a1.5 1.5 0 0 0 2.31 1.684l5.346-3.92a.5.5 0 0 1 .591 0l5.344 3.919a1.5 1.5 0 0 0 2.312-1.683l-2.178-6.535a.5.5 0 0 1 .155-.543l5.194-4.306a1.5 1.5 0 0 0 .433-1.661z"></path></svg></span>
+						<span><svg height="17px" width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path style="fill:#ED8A19;" d="M23.555 8.729a1.505 1.505 0 0 0-1.406-.98h-6.087a.5.5 0 0 1-.472-.334l-2.185-6.193a1.5 1.5 0 0 0-2.81 0l-.005.016-2.18 6.177a.5.5 0 0 1-.471.334H1.85A1.5 1.5 0 0 0 .887 10.4l5.184 4.3a.5.5 0 0 1 .155.543l-2.178 6.531a1.5 1.5 0 0 0 2.31 1.684l5.346-3.92a.5.5 0 0 1 .591 0l5.344 3.919a1.5 1.5 0 0 0 2.312-1.683l-2.178-6.535a.5.5 0 0 1 .155-.543l5.194-4.306a1.5 1.5 0 0 0 .433-1.661z"></path></svg></span>
+					</div>
+					<span></span>
+				</div>
+				<div>
+					<a class="me-3" href="#">Copacabana, Rio de Janeiro</a>
+					<a href="#">Show on map</a>
+					<span>9 km from centreBeach nearby</span>
+				</div>
+				<div>
+					<span>
+						<svg height="17px" width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M.153 22.237l.85 1.117c.634.76 1.724.856 2.456.244.078-.066.15-.138.216-.217l.944-1.132a.228.228 0 0 1 .349.001l.944 1.13a1.728 1.728 0 0 0 2.651.001l.944-1.132a.228.228 0 0 1 .349.001l.95 1.132a1.728 1.728 0 0 0 2.65 0l.942-1.133a.228.228 0 0 1 .349.001l.942 1.13a1.728 1.728 0 0 0 2.651.001l.944-1.132a.228.228 0 0 1 .349.001l.94 1.13a1.728 1.728 0 0 0 2.652.001l.585-.7a.75.75 0 1 0-1.15-.962l-.585.7a.228.228 0 0 1-.35 0l-.94-1.13a1.728 1.728 0 0 0-2.652-.001l-.944 1.132a.228.228 0 0 1-.349-.001l-.942-1.13a1.728 1.728 0 0 0-2.651-.001l-.943 1.132a.228.228 0 0 1-.348-.001l-.95-1.132a1.726 1.726 0 0 0-2.65 0l-.944 1.133a.228.228 0 0 1-.349-.001l-.944-1.13a1.728 1.728 0 0 0-2.65 0l-.945 1.13a.228.228 0 0 1-.349-.001l-.828-1.09a.75.75 0 1 0-1.194.91zm11.335-2.68A7.161 7.161 0 0 1 15.77 18h7.481a.75.75 0 0 0 0-1.5h-7.5a8.673 8.673 0 0 0-5.196 1.884.75.75 0 1 0 .934 1.174zM22.285 7.969a1.729 1.729 0 0 0 .781-2.711C19.43.713 12.8-.022 8.256 3.614a10.536 10.536 0 0 0-3.952 8.171A1.73 1.73 0 0 0 6.6 13.427l15.684-5.459zm-.494-1.416L6.107 12.01a.229.229 0 0 1-.304-.218 9.036 9.036 0 0 1 16.09-5.599.228.228 0 0 1-.102.359zm-9.459-4.2L11.69.504a.75.75 0 1 0-1.416.492l.643 1.848a.75.75 0 1 0 1.416-.492zm1.156 7.883l2.527 7.262a.75.75 0 1 0 1.416-.494l-2.527-7.26a.75.75 0 1 0-1.416.492z"></path>
+						</svg>
+					</span>
+					<span>50 m from beach</span>
+				</div>
+				<div>
+					<span>
+						<svg height="17px" width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M21.22 3.37a.75.75 0 0 0-.6-.59c-4.85-.9-10.6.55-13.37 3.36S3.1 14.39 3.88 19.05L2 21a.75.75 0 0 0 0 1 .74.74 0 0 0 .53.22A.71.71 0 0 0 3 22l2-1.9a16.94 16.94 0 0 0 2.76.23c4.09 0 8.19-1.33 10.35-3.52 2.71-2.81 4.07-8.59 3.11-13.44zM17 15.75c-2.11 2.14-6.59 3.36-10.7 3L16.59 8.47a.75.75 0 0 0 0 -1.06.77.77 0 0 0-1.07 0l-10.3 10.3c-.33-3.91.91-8.31 3.1-10.52s7.29-3.63 11.52-3c.67 4.22-.54 9.22-2.84 11.56z"></path>
+						</svg>
+					</span>
+					<span>Travel Sustainable property</span>
+				</div>
+				<p>The hotel is undergoing renovations until May/2024 in the seafront area of ​​the building and the areas of the Rooftop, Swimming Pool, Pool Bar, apartments with sea view and restaurant with sea view...</p>
+			</div>
+			<div class="col-12 col-lg-3 h-50">
+				<div class="d-flex">
+					<div class="">
+						<h5 class=" h6">Very good</h5>
+						<span>1,436 reviews</span>
+					</div>
+					<div class="ms-2">
+						<p class="bg-primary ps-3 py-1 rounded-top text-white pe-4">8.8</p>
+					</div>
+				</div>
+				<a class="btn btn-primary my-3" href="#">Show prices</a>
+			</div>
+		</div>
+	</div>
+</div>

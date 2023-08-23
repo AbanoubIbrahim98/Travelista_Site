@@ -1,0 +1,44 @@
+﻿
+@model IEnumerable<Review>
+@inject UserManager<IdentityUser> UserManager
+
+<section class="container">
+		<div class="row justify-content-between">
+	    <h2 class="text-primary text-center fw-bold">Comments</h2>
+@foreach (var item in Model)
+		{
+			var user = UserManager.Users.FirstOrDefault(u=>u.Id==item.User_id);
+
+			<div class="col-6 row border rounded p-3 mb-3">
+				<div class="col-1">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+						<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+						<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+					</svg>
+				</div>
+				<div class="col-10">
+					
+						<h6>@user.UserName</h6>
+					
+					<p></p>
+					<p id="content-@item.ID"> @item.Comment</p>
+					
+				</div>
+				<div class="d-flex justify-content-end">
+                       
+                        <select id="language-select-to-@item.ID" class="form-select me-2" style="width:8rem" aria-label="Default select example">
+                              <option value="en">English</option>
+							  <option value="es">Spanish</option>
+							  <option value="fr">French</option>
+							  <option value="de">German</option>
+							  <option value="it">Italian</option>
+							  <option value="ar">Arabic</option>
+                        </select>
+						 <button class="btn btn-primary me-2" onclick="show(@item.ID,'en')">Translate</button>
+                 </div>
+			</div>
+			
+		}
+		</div>
+	</section>
+

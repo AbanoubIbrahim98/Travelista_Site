@@ -1,0 +1,28 @@
+﻿
+
+
+
+
+<div class="container mt-5 text-center h3 alert alert-success" role="alert">
+ Rooms booked successfully. Thank you for using our website
+</div>
+
+@section scripts{
+
+<script>
+let ob = window.localStorage.getItem("book");
+ob = JSON.parse(ob);
+
+$.ajax({
+            type: 'POST',
+            url: '/Booking/Confirmation',
+            data: { user_id:, room_id, num_Guest, roomType, strart_date, end_date: },
+            success: function() {
+                // Handle success
+            },
+            error: function() {
+                // Handle error
+            }
+        });
+</script>
+}

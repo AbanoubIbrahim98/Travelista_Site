@@ -1,0 +1,46 @@
+﻿@model Room
+
+
+<div class="form-container mt-3" style="width:600px">
+    <h1 class="title">Booking</h1>
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+         {
+       <p class="title alert alert-danger">@ViewBag.ErrorMessage</p>
+        }
+<form class="form" method="post" asp-action="Book" asp-controller="Booking" >
+            <div class="input-group">
+                <label>Room ID</label>
+           <input type="number" name="id" value="@Model.ID" disabled />
+           <input id="id" type="hidden" name="room_id" value="@Model.ID" />
+            </div>
+             <div class="input-group">
+        <label>Guest</label>
+        <input type="number" name="Guest" value="@Model.Occupancy" disabled/>
+        <input id="guest" type="hidden" name="num_Guest" value="@Model.Occupancy" />
+         </div>
+         <div class="input-group">
+        <label>roomType</label>
+        <input type="text" name="room" value="@Model.Room_Type"disabled >
+        <input id="type" type="hidden" name="roomType" value="@Model.Room_Type" />
+         </div>
+         <div class="input-group">
+        <label>Check-in Date:</label>
+        <input id="start" type="date" name="strart_date" required>
+         </div>
+         <div class="input-group">
+        <label>Check-out Date:</label>
+        <input id="end" type="date" name="end_date" required >
+         </div>
+         <div class="input-group">
+        <button type="submit" id="paypal-btn" class="btn btn-primary mt-3 w-100">Book</button>
+        </div>
+              
+</form>
+
+</div>
+
+
+              
+
+               
+    

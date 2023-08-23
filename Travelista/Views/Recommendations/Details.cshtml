@@ -1,0 +1,41 @@
+﻿@model Travelista.Models.Recommendation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@{
+    var path = Model.Image_Url + ".jfif";
+}
+
+<div class="container">
+    <h1>Details</h1>
+    <h4>City</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.City.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image_Url)
+        </dt>
+        <dd class = "col-sm-10">
+           
+            <img src="~/Image@path"  width="60" height="40"/>
+        </dd>
+    </dl>
+    <div>
+    <a asp-action="Edit" class="btn btn-success me-3" asp-route-id="@Model?.ID">Edit</a> 
+    <a asp-action="Index" class="btn btn-dark">Back to List</a>
+</div>
+</div>
+

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Travelista.Models.Recommendation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary" style="background-color:#00357D">Create New</a>
+</p>
+<table class="table table-hover">
+    <thead class=" text-light" style="background-color:#00357D" >
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image_Url)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+              
+                <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City.Name)
+            </td>
+           
+            <td>
+               <img src="~/Image/@item.Image_Url" width="60"  height="30"/>
+            </td>
+            <td class="d-flex justify-content-end">
+                <partial name="_ButtonPartial" model="@item.ID"  />
+              
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

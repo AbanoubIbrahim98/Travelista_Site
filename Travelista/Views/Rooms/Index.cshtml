@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Travelista.Models.Room>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn text-light" style="background-color:#00357D" >Create New</a>
+</p>
+<table class="table table-hover">
+    <thead style="background-color:#00357D" class="text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.hotel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price_Per_Night)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.hotel.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price_Per_Night)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td class="d-flex justify-content-end">
+                <partial name="_ButtonPartial" model="@item.ID"></partial>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+</div>

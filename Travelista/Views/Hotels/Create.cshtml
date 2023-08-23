@@ -1,0 +1,85 @@
+﻿@model Travelista.Models.Hotel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="container">
+    <h1>Create</h1>
+
+<h4>Hotel</h4>
+@if (!string.IsNullOrEmpty(ViewBag.messa))
+         {
+       <p class="title alert alert-danger">@ViewBag.messa</p>
+        }
+<hr />
+
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="city" class="control-label"></label>
+                <select asp-for="City_Id" class ="form-control" asp-items="ViewBag.City_Id"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Star_Rating" class="control-label"></label>
+                <input asp-for="Star_Rating" class="form-control" />
+                <span asp-validation-for="Star_Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price_Per_Night" class="control-label"></label>
+                <input asp-for="Price_Per_Night" class="form-control" />
+                <span asp-validation-for="Price_Per_Night" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="SingleRoom_Number" class="control-label"></label>
+                <input asp-for="SingleRoom_Number" class="form-control" />
+                <span asp-validation-for="SingleRoom_Number" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="DoubleRoom_Number" class="control-label"></label>
+                <input asp-for="DoubleRoom_Number" class="form-control" />
+                <span asp-validation-for="DoubleRoom_Number" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="TripleRoom_Number" class="control-label"></label>
+                <input asp-for="TripleRoom_Number" class="form-control" />
+                <span asp-validation-for="TripleRoom_Number" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary me-2"/>
+                  <a asp-action="Index" class="btn btn-dark">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+  
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

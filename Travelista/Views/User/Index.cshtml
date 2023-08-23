@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IdentityUser>
+
+
+    <div class="container">
+    <h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn text-light" style="background-color:#00357D">Create New</a>
+</p>
+<table class="table table-hover">
+    <thead style="background-color:#00357D" class="text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td class="d-flex justify-content-end">
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+</div>
